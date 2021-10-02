@@ -1,5 +1,6 @@
 import React from 'react';
-import { List} from 'rsuite';
+import { List, FlexboxGrid, IconButton} from 'rsuite';
+import TrashIcon from '@rsuite/icons/Trash';
 import 'rsuite/dist/rsuite.min.css';
 
 
@@ -19,7 +20,15 @@ export default class ListSnippets extends React.Component {
               <List hover bordered>
                   {this.props.snippets.map((item, index) => (
                   <List.Item style={{cursor: 'pointer'}} key={index} index={index} onClick={() => {replaceBodyText(item)}}>
-                      {item.title}
+                        <FlexboxGrid>
+                            <FlexboxGrid.Item colspan={20}>
+                                {item.title}
+                            </FlexboxGrid.Item>
+                            <FlexboxGrid.Item colspan={4}>
+                            <IconButton  color="red" appearance="subtle" icon={<TrashIcon   />} onClick={() => this.props.handleRemoveSnippet(item)}>
+                            </IconButton>
+                            </FlexboxGrid.Item>
+                        </FlexboxGrid>
                   </List.Item>
                   ))}
               </List>

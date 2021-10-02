@@ -24,3 +24,15 @@ export const add = (item) => {
     // persist
     localStorage['snippets'] = JSON.stringify(data);
 }
+
+export const removeSnippet = (item) => {
+    if(!item || !item.title) return;
+    let data = fetch();
+    for(let i = 0; i < data.length; i++){
+        if (item.title === data[i].title){
+            data.splice(i, 1)
+        }
+    }
+    // persist
+    localStorage['snippets'] = JSON.stringify(data);
+}

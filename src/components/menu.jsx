@@ -3,7 +3,7 @@ import { Container, Content, Header } from 'rsuite';
 import ListSnippets from './ListSnippets'
 import AddSnippet from './AddSnippet'
 import 'rsuite/dist/rsuite.min.css'
-import { fetch, add } from '../services.js';
+import { fetch, add, removeSnippet } from '../services.js';
 
 const ORIGIN_GMAIL = "https://mail.google.com";
 
@@ -26,15 +26,20 @@ export default class Menu extends React.Component {
     const snippets = fetch();
     this.setState({snippets});
 }
+
+handleRemoveSnippet = (e) => {
+    removeSnippet(e);
+    const snippets = fetch();
+    this.setState({snippets});
+}
   
   componentDidMount() {
     window.addEventListener('message', this.handleIncomingMessage);
   }
   
    componentWillUnmount() {
-    window.removeEventListener('click', this.handleIncomingMessage);
+    window.removeEventListener('message', this.handleIncomingMessage);
   }
-  //remove event listener
 
     render(){ 
         return(
@@ -44,7 +49,10 @@ export default class Menu extends React.Component {
                     <AddSnippet></AddSnippet>
                 </Header>
                 <Content>
-                    <ListSnippets snippets={this.state.snippets}></ListSnippets>
+                    <ListSnippets 
+                        snippets={this.state.snippets}
+                        handleRemoveSnippet={this.handleRemoveSnippet}
+                    ></ListSnippets>
                 </Content>
                 </Container>
             </div>
