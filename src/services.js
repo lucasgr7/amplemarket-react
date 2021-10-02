@@ -1,9 +1,9 @@
 const DEFAULT_SNIPPETS = [{
     'title': 'Welcome message',
-    'text': 'Welcome my dear friend'
+    'text': 'Welcome to our company my friend'
 },{
-    'title': 'Goodbye message',
-    'text': 'Goodbye my friend'
+    'title': '😀',
+    'text': '😀😀😀'
 }]
 
 export const fetch = () => {
