@@ -1,6 +1,11 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React app for chrome plugin
+
+This project was developed to support the chrome plugin https://github.com/lucasgr7/amplemarket
+
+## Demo
+
+https://lucastestchromeplugin.herokuapp.com
 
 ## Available Scripts
 
